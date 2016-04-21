@@ -1,11 +1,12 @@
 require "administrate/field/has_many"
 require "administrate/page/form"
 require "rails"
+require "cocoon"
 
 module Administrate
   module Field
     class NestedHasMany < Administrate::Field::HasMany
-      VERSION = "0.0.1"
+      VERSION = "0.0.2"
 
       class Engine < ::Rails::Engine
       end

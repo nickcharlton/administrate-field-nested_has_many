@@ -7,13 +7,13 @@ A plugin for nested has_many forms in [Administrate].
 Add to your `Gemfile`:
 
 ```ruby
-gem "administrate-field-nested_has_many"
+gem "administrate-field-nested_has_many", "~> 0.0.2"
 ```
 
 Run:
 
 ```bash
-$bundle install
+$ bundle install
 ```
 
 Add to your `FooDashboard`:
@@ -33,5 +33,21 @@ for the `NestedHasMany` field.
 Otherwise, Administrate will try to render a field
 for the order's `:customer` attribute,
 which breaks the nested form logic.
+
+## Stopgap fix for javascript
+
+At the moment, Administrate doesn't automatically load javascripts from plugins.
+To fix this, you need to generate the Administrate javascript file:
+
+```bash
+$ rails g administrate:views:layout
+```
+
+And then add a line to `app/views/admin/application/_javascript.html.erb`
+to input the javascript for this gem:
+
+```
+<%= javascript_include_tag "administrate-field-nested_has_many/application" %>
+```
 
 [Administrate]: https://github.com/thoughtbot/administrate
