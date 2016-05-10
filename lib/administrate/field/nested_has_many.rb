@@ -1,14 +1,16 @@
 require "administrate/field/has_many"
 require "administrate/page/form"
 require "rails"
+require "administrate/engine"
 require "cocoon"
 
 module Administrate
   module Field
     class NestedHasMany < Administrate::Field::HasMany
-      VERSION = "0.0.2"
+      VERSION = "0.1.0"
 
       class Engine < ::Rails::Engine
+        Administrate::Engine.add_javascript "administrate-field-nested_has_many/application"
       end
 
       DEFAULT_ATTRIBUTES = [:id, :_destroy].freeze
