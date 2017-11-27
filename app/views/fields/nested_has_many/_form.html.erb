@@ -1,13 +1,13 @@
-<div class="nested-fields" style="width: 40%; margin-left: 20%;">
-
+<fieldset class="field-unit--nested">
+  <legend><%= f.label field.attribute %></legend>
   <%= f.fields_for field.association_name do |nested_form| %>
-    <%= render(
-      partial: "fields/nested_has_many/fields",
-      locals: {
-        f: nested_form,
-        field: field,
-      },
-    ) %>
+      <%= render(
+        partial: "fields/nested_has_many/fields",
+        locals: {
+          f: nested_form,
+          field: field,
+        },
+      ) %>
   <% end %>
 
   <div>
@@ -16,8 +16,9 @@
       "Add #{field.associated_class_name.titleize}",
       f,
       field.association_name,
+      class: 'button',
       partial: "fields/nested_has_many/fields",
       render_options: { locals: { field: field } },
     ) %>
   </div>
-</div>
+</fieldset>
