@@ -12,8 +12,7 @@
 
   <div>
     <%= link_to_add_association(
-      # TODO I18n
-      "Add #{field.associated_class_name.titleize}",
+      I18n.t("administrate.fields.nested_has_many.add", resource: field.associated_class_name.titleize),
       f,
       field.association_name,
       class: 'button',

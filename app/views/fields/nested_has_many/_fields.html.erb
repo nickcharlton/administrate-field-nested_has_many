@@ -6,6 +6,5 @@
     </div>
   <% end -%>
 
-  <%# TODO I18n %>
-  <%= link_to_remove_association "Remove #{field.associated_class_name.titleize}", f %>
+  <%= link_to_remove_association I18n.t("administrate.fields.nested_has_many.remove", resource: field.associated_class_name.titleize), f %>
 </div>
