@@ -8,10 +8,15 @@ module Administrate
   module Field
     class NestedHasMany < Administrate::Field::HasMany
       class Engine < ::Rails::Engine
-        Administrate::Engine.add_javascript "administrate-field-nested_has_many/application"
+        Administrate::Engine.add_javascript(
+          "administrate-field-nested_has_many/application",
+        )
+        Administrate::Engine.add_stylesheet(
+          "administrate-field-nested_has_many/application",
+        )
       end
 
-      DEFAULT_ATTRIBUTES = [:id, :_destroy].freeze
+      DEFAULT_ATTRIBUTES = %i(id _destroy).freeze
 
       def nested_fields
         associated_form.attributes.reject do |nested_field|

@@ -22,7 +22,8 @@ from the associated resource class's dashboard.
   <%= render(
     "collection",
     collection_presenter: field.associated_collection,
-    resources: field.resources
+    resources: field.resources,
+    table_title: field.name    
   ) %>
 
   <% if field.more_than_limit? %>
@@ -36,5 +37,5 @@ from the associated resource class's dashboard.
   <% end %>
 
 <% else %>
-  <%= t("administrate.fields.has_many.none") %>
+  <%= t("administrate.fields.has_many.none", default: "–") %>
 <% end %>
