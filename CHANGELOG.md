@@ -1,22 +1,35 @@
-# Administrate::Field::NestedHasMany Changelog
+# CHANGELOG
 
-## Key
+## 1.0.0
 
-* `[CHANGE]`: A breaking change. After an upgrade, your app may need
-  modifications to keep working correctly.
-* `[FEATURE]`: A non-breaking improvement to the app. Either introduces new
-  functionality, or improves on an existing feature.
-* `[UI]`: Non-breaking changes to the default user interface (HTML/CSS).
-* `[BUGFIX]`: Fixes a bug with a non-breaking change.
-* `[COMPAT]`: Compatibility improvements - changes to make Administrate more
-  compatible with different dependency versions.
-* `[I18n]`: Internationalization. Changes to translations or localizations.
-* `[OPTIM]`: Optimization or performance increase.
-* `[DOC]`: Documentation changes. No changes to the library's behavior.
+* Add `rake` for testing and release tools ([#16][]).
+* Fixes for `administrate` 0.9.0 ([#11][]).
+* Ensure current data is injected into nested fields ([#10][]).
+* Remove direct dependency on Rails ([#10][]).
+* Add i18n support ([#10][]).
+* Make styling more consistent with `has_one` form ([#10][]).
+* Add missing Gemfile and missing dependency on RSpec ([#15][]).
+* Update gem location and authors ([#14][]).
+* Avoid circular dependencies by not including the full library in the Gemspec
+  ([#13][]).
 
-## Changes
+[#16]: https://github.com/nickcharlton/administrate-field-nested_has_many/pull/16
+[#15]: https://github.com/nickcharlton/administrate-field-nested_has_many/pull/15
+[#14]: https://github.com/nickcharlton/administrate-field-nested_has_many/pull/14
+[#13]: https://github.com/nickcharlton/administrate-field-nested_has_many/pull/13
+[#11]: https://github.com/nickcharlton/administrate-field-nested_has_many/pull/11
+[#10]: https://github.com/nickcharlton/administrate-field-nested_has_many/pull/10
 
-### Upcoming Release
+## 0.1.0
 
-* [Feature] Users no longer need to override Administrate's `javascript` partial
-  to use this plugin. The required javascript is added to pages automatically.
+* Updates for changes in `administrate` 0.2.1.
+* Import JavaScript automatically.
+
+## 0.0.2
+
+* Add missing import for `cocoon`.
+* Note stop gap fix for missing JavaScript imports.
+
+## 0.0.1
+
+* Initial Release.

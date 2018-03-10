@@ -7,7 +7,7 @@ A plugin for nested has_many forms in [Administrate].
 Add to your `Gemfile`:
 
 ```ruby
-gem "administrate-field-nested_has_many", "~> 0.0.2"
+gem "administrate-field-nested_has_many"
 ```
 
 Run:
@@ -17,6 +17,7 @@ $ bundle install
 ```
 
 Add to your `FooDashboard`:
+
 ```ruby
 ATTRIBUTE_TYPES = [
   bars: Field::NestedHasMany.with_options(skip: :foo),
