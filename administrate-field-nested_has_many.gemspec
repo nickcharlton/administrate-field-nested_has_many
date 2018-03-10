@@ -18,5 +18,6 @@ Gem::Specification.new do |gem|
   gem.add_dependency "administrate", "> 0.8", "< 1"
   gem.add_dependency "cocoon", "~> 1.2", ">= 1.2.11"
 
+  gem.add_development_dependency "rake"
   gem.add_development_dependency "rspec"
 end
