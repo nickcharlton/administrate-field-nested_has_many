@@ -1,0 +1,8 @@
+base_locale: en
+
+data:
+  read:
+    - config/locales/administrate-field-nested_has_many.%{locale}.yml
+
+ignore:
+  - 'administrate.fields.has_many.*'
