@@ -21,9 +21,9 @@ RSpec.describe "I18n" do
 
   it "files are normalized" do
     non_normalized = i18n.non_normalized_paths
-    error_message = "The following files need to be normalized:\n" \
-                    "#{non_normalized.map { |path| "  #{path}" }.join("\n")}\n" \
-                    "Please run `i18n-tasks normalize` to fix"
-    expect(non_normalized).to be_empty, error_message
+    message = "The following files need to be normalized:\n" \
+              "#{non_normalized.map { |path| "  #{path}" }.join("\n")}\n" \
+              "Please run `i18n-tasks normalize` to fix"
+    expect(non_normalized).to be_empty, message
   end
 end
