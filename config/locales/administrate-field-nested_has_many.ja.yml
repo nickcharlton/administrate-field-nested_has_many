@@ -1,0 +1,7 @@
+---
+ja:
+  administrate:
+    fields:
+      nested_has_many:
+        add: "%{resource}を追加"
+        remove: "%{resource}を削除"
