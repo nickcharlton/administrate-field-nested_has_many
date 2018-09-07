@@ -10,6 +10,7 @@ class SchoolDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     id: Field::Number,
     name: Field::String,
+    students: Field::NestedHasMany,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -22,6 +23,7 @@ class SchoolDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = [
     :id,
     :name,
+    :students,
     :created_at,
     :updated_at,
   ].freeze
@@ -31,6 +33,7 @@ class SchoolDashboard < Administrate::BaseDashboard
   SHOW_PAGE_ATTRIBUTES = [
     :id,
     :name,
+    :students,
     :created_at,
     :updated_at,
   ].freeze
@@ -40,6 +43,7 @@ class SchoolDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
     :name,
+    :students,
   ].freeze
 
   def display_resource(school)
