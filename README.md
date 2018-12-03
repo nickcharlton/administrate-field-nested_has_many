@@ -19,9 +19,9 @@ $ bundle install
 Add to your `FooDashboard`:
 
 ```ruby
-ATTRIBUTE_TYPES = [
+ATTRIBUTE_TYPES = {
   bars: Field::NestedHasMany.with_options(skip: :foo),
-]
+}
 ```
 
 The `skip` option takes a single symbol or list of symbols.
