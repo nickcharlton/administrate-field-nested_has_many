@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 1.1.0
+
+* Add a `.ruby-version` file.
+* Adjust to upstream administrate changes.
+* Add Japanese locale.
+
 ## 1.0.0
 
 * Add `rake` for testing and release tools ([#16][]).
