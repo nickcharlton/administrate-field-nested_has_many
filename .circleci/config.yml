@@ -1,0 +1,28 @@
+---
+version: 2
+jobs:
+  build:
+    working_directory: ~/administrate-field-nested_has_many
+    docker:
+      - image: circleci/ruby:2.6.3
+        environment:
+          PGHOST: localhost
+          PGUSER: administrate-field-nested_has_many
+          RAILS_ENV: test
+      - image: postgres:11
+        environment:
+          POSTGRES_USER: administrate-field-nested_has_many
+          POSTGRES_DB: administrate-field-nested_has_many_test
+          POSTGRES_PASSWORD: ""
+    steps:
+      - checkout
+
+      - run: bundle install
+      - run: bundle exec appraisal install
+
+      - run: dockerize -wait tcp://localhost:5432 -timeout 1m
+
+      - run: bundle exec rake db:setup
+
+      - run: bundle exec rake
+      - run: bundle exec appraisal rake

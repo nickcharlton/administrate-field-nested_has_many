@@ -119,6 +119,7 @@ GEM
       mini_portile2 (~> 2.3.0)
     parser (2.5.1.2)
       ast (~> 2.4.0)
+    pg (1.1.4)
     public_suffix (3.0.3)
     rack (2.0.5)
     rack-test (1.1.0)
@@ -198,6 +199,7 @@ DEPENDENCIES
   capybara
   factory_bot
   i18n-tasks
+  pg
   rake
   rspec-rails
   sqlite3
