@@ -1,0 +1,7 @@
+---
+ru:
+  administrate:
+    fields:
+      nested_has_many:
+        add: Добавить %{resource}
+        remove: Удалить %{resource}
