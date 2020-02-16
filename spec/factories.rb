@@ -3,7 +3,7 @@ FactoryBot.define do
     sequence(:name) { |i| "School ##{i}" }
   end
 
-  factory :student do
+  factory :student, class: Foo::Student do
     sequence(:name) { |i| "Student ##{i}" }
   end
 end

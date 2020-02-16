@@ -44,19 +44,20 @@ module Administrate
         data
       end
 
-      def self.dashboard_for_resource(resource)
-        "#{resource.to_s.classify}Dashboard".constantize
+      def self.dashboard_for_resource(resource, options)
+        class_name = options && options[:class_name] || resource.to_s.classify
+        "#{class_name}Dashboard".constantize
       end
 
-      def self.associated_attributes(associated_resource)
-        DEFAULT_ATTRIBUTES +
-          dashboard_for_resource(associated_resource).new.permitted_attributes
+      def self.associated_attributes(associated_resource, options)
+        dashboard_class = dashboard_for_resource(associated_resource, options)
+        DEFAULT_ATTRIBUTES + dashboard_class.new.permitted_attributes
       end
 
-      def self.permitted_attribute(associated_resource, _options = nil)
+      def self.permitted_attribute(associated_resource, options = nil)
         {
           "#{associated_resource}_attributes".to_sym =>
-          associated_attributes(associated_resource),
+          associated_attributes(associated_resource, options),
         }
       end
 
@@ -65,7 +66,10 @@ module Administrate
       end
 
       def association_name
-        associated_class_name.underscore.pluralize
+        options.fetch(
+          :association_name,
+          associated_class_name.underscore.pluralize[/([^\/]*)$/, 1],
+        )
       end
 
       def associated_form

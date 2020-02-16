@@ -20,6 +20,7 @@ Gem::Specification.new do |gem|
 
   gem.add_development_dependency "appraisal"
   gem.add_development_dependency "capybara"
+  gem.add_development_dependency "selenium-webdriver"
   gem.add_development_dependency "factory_bot"
   gem.add_development_dependency "i18n-tasks"
   gem.add_development_dependency "rake"

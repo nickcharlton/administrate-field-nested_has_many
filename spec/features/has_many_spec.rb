@@ -9,13 +9,33 @@ feature "Has many" do
     FactoryBot.create(:student, name: "John Doe", school: school)
   end
 
-  scenario "index page" do
+  scenario "index" do
     visit admin_schools_path
     expect(page).to have_content("School of Life")
   end
 
-  scenario "show page" do
+  scenario "show" do
     visit admin_school_path(school)
     expect(page).to have_content("John Doe")
+  end
+
+  scenario "new" do
+    visit new_admin_school_path
+    expect(page).to have_content("New Schools")
+  end
+
+  scenario "create", js: true do
+    visit new_admin_school_path
+    expect(page).to have_content("New Schools")
+    expect(page).to have_content("Add Foo/Student")
+    fill_in "Name", with: "La Ferme du Bec Hellouin"
+    click_link "Add Foo/Student"
+    expect(page).to have_content("Remove Foo/Student")
+    within(".nested-fields") do
+      fill_in "Name", with: "Sébastien"
+    end
+    click_button "Create School"
+    expect(page).to have_text("La Ferme du Bec Hellouin")
+    expect(page).to have_text("Sébastien")
   end
 end
