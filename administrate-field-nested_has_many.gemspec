@@ -2,7 +2,7 @@ $:.push File.expand_path("../lib", __FILE__)
 
 Gem::Specification.new do |gem|
   gem.name = "administrate-field-nested_has_many"
-  gem.version = "1.1.0"
+  gem.version = "1.2.0"
   gem.authors = ["Nick Charlton", "Grayson Wright"]
   gem.email = ["nick@nickcharlton.net", "wright.grayson@gmail.com"]
   gem.homepage = "https://github.com/nickcharlton/" \

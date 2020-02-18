@@ -1,5 +1,21 @@
 # CHANGELOG
 
+## 1.2.0
+
+* Add support for namespaced models ([#24][])
+* Add missing accepts nested attributes to School.
+* Explicitly import administrate and field JS/CSS.
+* Add ru locale ([#26][]).
+* Add pt locale ([#25][]).
+* Add Circle CI.
+* Upgrade Ruby to 2.6.3.
+* Add a dummy test app ([#19][]).
+
+[#24]: https://github.com/nickcharlton/administrate-field-nested_has_many/pull/24
+[#26]: https://github.com/nickcharlton/administrate-field-nested_has_many/pull/26
+[#25]: https://github.com/nickcharlton/administrate-field-nested_has_many/pull/25
+[#19]: https://github.com/nickcharlton/administrate-field-nested_has_many/pull/19
+
 ## 1.1.0
 
 * Add a `.ruby-version` file.
