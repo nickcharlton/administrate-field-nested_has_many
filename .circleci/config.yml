@@ -8,12 +8,13 @@ jobs:
         environment:
           PGHOST: localhost
           PGUSER: administrate-field-nested_has_many
+          PGPASSWORD: administrate-field-nested_has_many
           RAILS_ENV: test
       - image: postgres:11
         environment:
           POSTGRES_USER: administrate-field-nested_has_many
           POSTGRES_DB: administrate-field-nested_has_many_test
-          POSTGRES_PASSWORD: ""
+          POSTGRES_PASSWORD: administrate-field-nested_has_many
     steps:
       - checkout
 
