@@ -38,4 +38,31 @@ feature "Has many" do
     expect(page).to have_text("La Ferme du Bec Hellouin")
     expect(page).to have_text("Sébastien")
   end
+
+  scenario "edit" do
+    school = FactoryBot.create(:school)
+    FactoryBot.create_list(:student, 2, school: school)
+    visit edit_admin_school_path(school)
+    expect(page).to have_content("Edit #{school.name}")
+  end
+
+  scenario "update", js: true do
+    school = FactoryBot.create(:school)
+    student = FactoryBot.create(:student, school: school)
+    visit edit_admin_school_path(school)
+    click_link "Add Foo/Student"
+
+    within(all(".nested-fields").last) do
+      fill_in "Name", with: "Sébastien"
+    end
+
+    within(all(".nested-fields").first) do
+      click_link "Remove Foo/Student"
+    end
+
+    click_button "Update School"
+
+    expect(page).to have_text("Sébastien")
+    expect(page).not_to have_text(student.name)
+  end
 end
