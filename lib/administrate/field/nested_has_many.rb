@@ -32,7 +32,7 @@ module Administrate
           next if nested_field.resource.blank?
 
           # inject current data into field
-          resource = nested_field.resource[form_builder.index]
+          resource = data[form_builder.index]
           nested_field.instance_variable_set(
             "@data",
             resource.send(nested_field.attribute),
@@ -73,10 +73,14 @@ module Administrate
       end
 
       def associated_form
-        Administrate::Page::Form.new(associated_dashboard, data)
+        Administrate::Page::Form.new(associated_dashboard, new_resource)
       end
 
       private
+
+      def new_resource
+        @new_resource ||= associated_class_name.constantize.new
+      end
 
       def skipped_fields
         Array(options[:skip])
