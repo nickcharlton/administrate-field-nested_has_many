@@ -19,20 +19,26 @@ module Administrate
 
       DEFAULT_ATTRIBUTES = %i(id _destroy).freeze
 
-      def nested_fields
-        associated_form.attributes.reject do |nested_field|
+      def nested_fields(object=nil)
+        associated_form(object).attributes.reject do |nested_field|
           skipped_fields.include?(nested_field.attribute)
         end
       end
 
       def nested_fields_for_builder(form_builder)
-        return nested_fields unless form_builder.index.is_a? Integer
+        fields = nested_fields(form_builder.object)
 
-        nested_fields.each do |nested_field|
+        return fields unless form_builder.index.is_a? Integer
+
+        fields.each do |nested_field|
           next if nested_field.resource.blank?
 
           # inject current data into field
-          resource = data[form_builder.index]
+          resource = if form_builder.object.nil?
+                       nested_field.resource[form_builder.index]
+                     else
+                       nested_field.resource
+                     end
           nested_field.instance_variable_set(
             "@data",
             resource.send(nested_field.attribute),
@@ -72,14 +78,16 @@ module Administrate
         )
       end
 
-      def associated_form
-        Administrate::Page::Form.new(associated_dashboard, new_resource)
+      def associated_form(object=nil)
+        resource = object || data.present? && data || resolver.resource_class.new
+        Administrate::Page::Form.new(associated_dashboard, resource)
       end
 
       private
 
-      def new_resource
-        @new_resource ||= associated_class_name.constantize.new
+      def resolver
+        @resolver ||=
+            Administrate::ResourceResolver.new("admin/#{associated_class_name}")
       end
 
       def skipped_fields
