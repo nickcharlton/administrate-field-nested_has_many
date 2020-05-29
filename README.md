@@ -1,5 +1,7 @@
 # Administrate::Field::NestedHasMany
 
+A pointless change to make a PR out of it.
+
 A plugin for nested has_many forms in [Administrate].
 
 ## Usage
