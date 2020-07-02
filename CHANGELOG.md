@@ -1,5 +1,19 @@
 # CHANGELOG
 
+## 1.3.0
+
+* Cover more test cases ([#43][])
+* Update form constructor to avoid undefined method ([#34][])
+* Upgrade Ruby to 2.7.0 ([#27][])
+* We need to use a node-browsers to run features ([#30][])
+* Fix CI by explicitly setting a Postgres password ([#29][])
+
+[#43]: https://github.com/nickcharlton/administrate-field-nested_has_many/pull/43
+[#34]: https://github.com/nickcharlton/administrate-field-nested_has_many/pull/34
+[#27]: https://github.com/nickcharlton/administrate-field-nested_has_many/pull/27
+[#30]: https://github.com/nickcharlton/administrate-field-nested_has_many/pull/30
+[#29]: https://github.com/nickcharlton/administrate-field-nested_has_many/pull/29
+
 ## 1.2.0
 
 * Add support for namespaced models ([#24][])
