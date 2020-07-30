@@ -10,7 +10,7 @@ class SchoolDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     id: Field::Number,
     name: Field::String,
-    students: Field::NestedHasMany.with_options(class_name: "Foo::Student"),
+    students: Field::NestedHasMany,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
