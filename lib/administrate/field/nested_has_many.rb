@@ -57,7 +57,7 @@ module Administrate
         given_class_name = options[:class_name]
         _resource_class =
           if given_class_name
-            # TODO: deprecation warning
+            Administrate.warn_of_deprecated_option(:class_name)
             given_class_name.classify
           else
             options[:resource_class]
