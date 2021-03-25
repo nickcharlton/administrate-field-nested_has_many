@@ -24,7 +24,6 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency "factory_bot"
   gem.add_development_dependency "i18n-tasks"
   gem.add_development_dependency "rake"
-  gem.add_development_dependency "rails"
   gem.add_development_dependency "rspec-rails"
   gem.add_development_dependency "sqlite3"
 end
