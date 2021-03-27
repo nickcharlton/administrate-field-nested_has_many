@@ -2,6 +2,8 @@
 
 A plugin for nested has_many forms in [Administrate].
 
+[Administrate]: https://github.com/thoughtbot/administrate
+
 ## Usage
 
 Add to your `Gemfile`:
@@ -35,4 +37,25 @@ Otherwise, Administrate will try to render a field
 for the order's `:customer` attribute,
 which breaks the nested form logic.
 
-[Administrate]: https://github.com/thoughtbot/administrate
+## Troubleshooting
+
+### `undefined method 'new_record?' for nil:NilClass`
+
+This field assumes that your models are setup for nested assignment as per
+Rails conventions. For example, if you have a `Recipe` that
+`has_many :ingredients`, you would have something like this:
+
+```ruby
+class Recipe < ApplicationRecord
+  has_many :ingredients
+
+  accepts_nested_attributes_for(
+    :ingredients,
+    reject_if: :all_blank,
+    allow_destroy: true
+  )
+end
+```
+
+Specifically, you'll see this `new_record?` error if you forget the
+`accepts_nested_attributes_for` declaration.
