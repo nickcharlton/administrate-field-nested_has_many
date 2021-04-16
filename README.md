@@ -4,6 +4,20 @@ A plugin for nested has_many forms in [Administrate].
 
 [Administrate]: https://github.com/thoughtbot/administrate
 
+## Compatibility
+
+This gem depends on Administrate APIs that may change over time. For this reason,
+some versions of this gem will be compatible only with some versions of Administrate.
+
+This is a table of known compatibilities. It is accurate to the best of our knowledge.
+Please let us know if you detect other incompatibilities:
+
+| Versions of this gem | should work with these versions of Administrate |
+|----------------------|-------------------------------------------------|
+| prior to v1.3.0      | unknown                                         |
+| v1.3.0               | up to v0.14                                     |
+| master               | master                                          |
+
 ## Usage
 
 Add to your `Gemfile`:
