@@ -15,8 +15,8 @@ Please let us know if you detect other incompatibilities:
 | Versions of this gem | should work with these versions of Administrate |
 |----------------------|-------------------------------------------------|
 | prior to v1.3.0      | unknown                                         |
-| v1.3.0               | up to v0.14                                     |
-| master               | master                                          |
+| v1.3.0               | up to master (last known: v0.15)                |
+| master               | from v0.15                                      |
 
 ## Usage
 
