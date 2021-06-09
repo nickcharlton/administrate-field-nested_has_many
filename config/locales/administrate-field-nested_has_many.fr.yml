@@ -1,0 +1,7 @@
+---
+fr:
+  administrate:
+    fields:
+      nested_has_many:
+        add: Ajouter %{resource}
+        remove: Supprimer %{resource}
