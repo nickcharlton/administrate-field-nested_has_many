@@ -31,13 +31,7 @@ from the associated resource class's dashboard.
   ) %>
 
   <% if field.more_than_limit? %>
-    <span>
-      <%= t(
-        'administrate.fields.has_many.more',
-        count: field.limit,
-        total_count: field.data.count,
-      ) %>
-    </span>
+    <%= paginate field.resources(page_number), param_name: "#{field.name}[page]" %>
   <% end %>
 <% else %>
   <%= t("administrate.fields.has_many.none", default: "–") %>
