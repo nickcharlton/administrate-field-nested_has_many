@@ -19,6 +19,16 @@ feature "Has many" do
     expect(page).to have_content("John Doe")
   end
 
+  scenario "pagination" do
+    FactoryBot.create_list(:student, 10, school: school)
+
+    visit admin_school_path(school)
+
+    expect(page.html).to have_css("nav[role=navigation]")
+    expect(page.html).to have_content("Last")
+    expect(page.html).to have_content("Next")
+  end
+
   scenario "new" do
     visit new_admin_school_path
     expect(page).to have_content("New Schools")
