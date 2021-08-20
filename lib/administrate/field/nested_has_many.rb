@@ -51,32 +51,39 @@ module Administrate
         data
       end
 
-      def self.dashboard_for_resource(resource, options)
-        class_name = options && options[:class_name] || resource.to_s.classify
-        "#{class_name}Dashboard".constantize
+      def self.dashboard_for_resource(resource_class, attr)
+        "#{associated_class_name(resource_class, attr)}Dashboard".constantize
       end
 
-      def self.associated_attributes(associated_resource, options)
-        dashboard_class = dashboard_for_resource(associated_resource, options)
+      def self.associated_attributes(resource_class, attr)
+        dashboard_class = dashboard_for_resource(resource_class, attr)
         DEFAULT_ATTRIBUTES + dashboard_class.new.permitted_attributes
       end
 
-      def self.permitted_attribute(associated_resource, options = nil)
+      def self.permitted_attribute(attr, options = {})
+        given_class_name = options[:class_name]
+        _resource_class =
+          if given_class_name
+            Administrate.warn_of_deprecated_option(:class_name)
+            given_class_name.classify
+          else
+            options[:resource_class]
+          end
+
         {
-          "#{associated_resource}_attributes".to_sym =>
-          associated_attributes(associated_resource, options),
+          "#{attr}_attributes".to_sym =>
+            associated_attributes(_resource_class, attr),
         }
       end
 
       def associated_class_name
-        options.fetch(:class_name, attribute.to_s.singularize.camelcase)
+        self.class.associated_class_name(resource.class, attribute)
       end
 
       def association_name
-        options.fetch(
-          :association_name,
-          associated_class_name.underscore.pluralize[/([^\/]*)$/, 1],
-        )
+        options.fetch(:association_name) do
+          associated_class_name.underscore.pluralize[/([^\/]*)$/, 1]
+        end
       end
 
       def associated_form
@@ -86,7 +93,7 @@ module Administrate
       private
 
       def new_resource
-        @new_resource ||= associated_class_name.constantize.new
+        @new_resource ||= associated_class.new
       end
 
       def skipped_fields

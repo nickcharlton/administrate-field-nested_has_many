@@ -3,6 +3,6 @@
 source "https://rubygems.org"
 
 gem "pg"
-gem "administrate", "0.13.0"
+gem "administrate", "0.15.0"
 
 gemspec path: "../"
