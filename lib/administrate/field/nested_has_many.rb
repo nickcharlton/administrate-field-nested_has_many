@@ -15,6 +15,13 @@ module Administrate
         Administrate::Engine.add_stylesheet(
           "administrate-field-nested_has_many/application",
         )
+
+        initializer "administrate-field-nested_has_many.assets.precompile" do |app|
+          app.config.assets.precompile += [
+            "administrate-field-nested_has_many/application.js",
+            "administrate-field-nested_has_many/application.css",
+          ]
+        end
       end
 
       DEFAULT_ATTRIBUTES = %i(id _destroy).freeze
