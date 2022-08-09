@@ -94,6 +94,8 @@ module Administrate
 
       def new_resource
         @new_resource ||= associated_class.new
+        @new_resource[foreign_key] = data.send(primary_key)
+        @new_resource
       end
 
       def skipped_fields
