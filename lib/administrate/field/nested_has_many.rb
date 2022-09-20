@@ -39,7 +39,7 @@ module Administrate
           next if nested_field.resource.blank?
 
           # inject current data into field
-          resource = data[form_builder.index]
+          resource = form_builder.object
           nested_field.instance_variable_set(
             "@data",
             resource.send(nested_field.attribute),
