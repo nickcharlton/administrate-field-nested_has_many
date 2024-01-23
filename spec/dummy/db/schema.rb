@@ -10,22 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_07_104703) do
-
+ActiveRecord::Schema[7.1].define(version: 2018_09_07_104703) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "schools", force: :cascade do |t|
     t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
   end
 
   create_table "students", force: :cascade do |t|
     t.string "name"
     t.bigint "school_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.index ["school_id"], name: "index_students_on_school_id"
   end
 

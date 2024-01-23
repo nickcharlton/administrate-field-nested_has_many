@@ -27,7 +27,13 @@ module Administrate
       DEFAULT_ATTRIBUTES = %i(id _destroy).freeze
 
       def nested_fields
-        associated_form.attributes.reject do |nested_field|
+        all_fields = if Administrate::VERSION >= "0.20.0"
+                       associated_form.attributes.values.flatten
+                     else
+                       associated_form.attributes
+                     end
+
+        all_fields.reject do |nested_field|
           skipped_fields.include?(nested_field.attribute)
         end
       end
