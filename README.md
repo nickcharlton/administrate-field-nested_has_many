@@ -12,11 +12,11 @@ some versions of this gem will be compatible only with some versions of Administ
 This is a table of known compatibilities. It is accurate to the best of our knowledge.
 Please let us know if you detect other incompatibilities:
 
-| Versions of this gem | should work with these versions of Administrate |
-|----------------------|-------------------------------------------------|
-| prior to v1.3.0      | unknown                                         |
-| v1.3.0               | up to master (last known: v0.15)                |
-| master               | from v0.15                                      |
+| `nested_has_many` | Administrate  |
+|-------------------|---------------|
+| v1.3.0            | up to v0.15   |
+| `#726d8gc`        | from v0.16    |
+| `master`          | up to v0.19.0 |
 
 ## Usage
 
