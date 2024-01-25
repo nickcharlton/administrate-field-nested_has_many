@@ -1,5 +1,28 @@
 # CHANGELOG
 
+## 2.0.0
+
+* Add CONTRIBUTING (#78)
+* Add the thoughtbot CoC (#76)
+* Add SECURITY (#77)
+* Add LICENSE (#75)
+* Add a script to build the changelog (#74)
+* Add a bin/setup script (#73)
+* Drop Administrate support below v0.19.0 (#72)
+* Upgrade Ruby to v3.3.0 (#67)
+* Drop SQLite development dependency (#70)
+* Refresh Appraisals (properly) (#71)
+* Refresh Appraisals (#69)
+* Pin Administrate below 0.20.0 (#68)
+* Add German locale (#53)
+* Align #show pagination with 0.16.0 (#52)
+* Let Administrate figure out the associations (#44)
+* Avoid having to add assets to the host manifest (#45)
+* Add French locale (#51)
+* Fix build to work with Rails 6.1 (#47)
+* Remove old compatibility (#46)
+* Remind users to declare accepts_nested_attributes_for (#48)
+
 ## 1.3.0
 
 * Cover more test cases ([#43][])
