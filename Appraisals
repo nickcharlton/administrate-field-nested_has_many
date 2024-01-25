@@ -4,6 +4,7 @@ appraise "administrate-0.15" do
   gem "administrate", "0.15.0"
 end
 
-appraise "administrate-master" do
-  gem "administrate", git: "https://github.com/thoughtbot/administrate", branch: "master"
+appraise "administrate-0.19" do
+  gem "administrate", "0.19.0"
 end
+
