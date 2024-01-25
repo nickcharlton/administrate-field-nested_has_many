@@ -4,7 +4,7 @@ jobs:
   build:
     working_directory: ~/administrate-field-nested_has_many
     docker:
-      - image: circleci/ruby:2.7.0-node-browsers
+      - image: cimg/ruby:3.3-browsers
         environment:
           PGHOST: localhost
           PGUSER: administrate-field-nested_has_many
