@@ -1,0 +1,13 @@
+#!/bin/sh
+
+set -e
+
+gem install bundler --conservative
+bundle check || bundle install
+
+bundle exec appraisal install
+
+bundle exec rake db:setup
+
+# Add binstubs to PATH via export PATH=".git/safe/../../bin:$PATH" in ~/.zshenv
+mkdir -p .git/safe
