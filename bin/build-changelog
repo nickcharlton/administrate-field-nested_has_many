@@ -1,0 +1,24 @@
+#!/bin/sh
+
+set -e
+
+if ! command -v gh > /dev/null; then
+  echo "Please install the GitHub CLI: https://cli.github.com/"
+  exit 1
+fi
+
+last_release=$(git describe --tag --abbrev=0)
+
+revision_range="${last_release}..origin/main"
+commit_format="--pretty=tformat:%h %s"
+commits_since=$(git log --author="^(?!dependabot).*$" --perl-regexp "${revision_range}" "${commit_format}")
+
+echo "$commits_since" | while read -r line; do
+	sha=$(echo "${line}" | awk '{print $1}')
+	commit_message=$(echo "${line}" | awk '{print substr($0, index($0, " ")+1)}')
+
+	pr_number=$(gh pr list --search "$sha" --state merged --json number --jq '.[].number')
+	trimmed_commit=$(echo "${commit_message}"| sed "s/ (\#$pr_number)//g")
+
+	echo "* ${trimmed_commit} (#${pr_number})"
+done
