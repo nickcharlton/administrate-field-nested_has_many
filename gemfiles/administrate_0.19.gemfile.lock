@@ -1,7 +1,7 @@
 PATH
   remote: ..
   specs:
-    administrate-field-nested_has_many (2.0.0)
+    administrate-field-nested_has_many (2.1.0)
       administrate (>= 0.19, < 1)
       cocoon (~> 1.2, >= 1.2.11)
 

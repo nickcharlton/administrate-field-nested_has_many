@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 2.1.0
+
+* Add support for attribute grouping ([#79][])
+* Add Selectize support for the select boxes ([#64][])
+
+[#79]: https://github.com/nickcharlton/administrate-field-nested_has_many/pull/79
+[#64]: https://github.com/nickcharlton/administrate-field-nested_has_many/pull/64
+
 ## 2.0.0
 
 * Add CONTRIBUTING (#78)

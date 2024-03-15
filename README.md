@@ -14,6 +14,8 @@ Please let us know if you detect other incompatibilities:
 
 | `nested_has_many` | Administrate  |
 |-------------------|---------------|
+| v2.1.0            | v0.20.0       |
+| v2.0.0            | up to v0.19   |
 | v1.3.0            | up to v0.15   |
 | `#726d8gc`        | from v0.16    |
 | `master`          | up to v0.19.0 |
