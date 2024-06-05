@@ -1,7 +1,10 @@
 ---
 en:
-  administrate:
-    fields:
-      nested_has_many:
-        add: Add %{resource}
-        remove: Remove %{resource}
+  cocoon:
+    defaults:
+      add: Add record
+      remove: Remove record
+    foo/students:
+      remove: Remove Foo/Student
+    students:
+      add: Add Foo/Student

@@ -6,3 +6,6 @@ data:
 
 ignore:
   - 'administrate.fields.has_many.*'
+  - 'cocoon.defaults.*'
+  - 'cocoon.foo/students.*'
+  - 'cocoon.students.*'
