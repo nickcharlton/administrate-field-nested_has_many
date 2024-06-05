@@ -1,7 +1,6 @@
 ---
 fr:
-  administrate:
-    fields:
-      nested_has_many:
-        add: Ajouter %{resource}
-        remove: Supprimer %{resource}
+  cocoon:
+    defaults:
+      add: Ajouter un enregistrement
+      remove: Supprimer un enregistrement
