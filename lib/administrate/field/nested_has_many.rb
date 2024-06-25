@@ -50,6 +50,10 @@ module Administrate
             "@data",
             resource.send(nested_field.attribute),
           )
+          nested_field.instance_variable_set(
+            "@resource",
+            resource
+          )
         end
       end
 
