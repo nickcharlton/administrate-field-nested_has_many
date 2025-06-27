@@ -1,0 +1,19 @@
+:root {
+  --base-spacing: 1rem;
+}
+
+.field-unit--nested-has-many .nested-fields {
+  margin-bottom: var(--base-spacing);
+  padding-bottom: var(--base-spacing);
+}
+
+.field-unit--nested-has-many .nested-fields::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.field-unit--nested-has-many .remove_fields,
+.field-unit--nested-has-many .add_fields {
+  float: right;
+}
